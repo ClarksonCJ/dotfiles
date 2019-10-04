@@ -1,40 +1,43 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-CONFIG_DIR="$HOME/.dotfiles"
-
-# The following lines were added by compinstall
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle :compinstall filename '${CONFIG_DIR}/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-
-# Set name of the theme to load.
-ZSH_THEME="bureau"
-
-# Source shell files to setup environment
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# export ZSH=$HOME/.oh-my-zsh
+# Plugin Configuration
 source /usr/local/share/antigen/antigen.zsh
-source $CONFIG_DIR/functions.zsh
-source $CONFIG_DIR/env.zsh
-source $CONFIG_DIR/plugins.zsh
-source $ZSH/oh-my-zsh.sh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-if [[ -a $CONFIG_DIR/client_funcs.sh ]]; then
-    source $CONFIG_DIR/client_funcs.sh
-fi
+# Use Antigen for plugin management
+antigen use oh-my-zsh
 
-if [[ -a $CONFIG_DIR/local_config.sh ]]; then
-    source $CONFIG_DIR/local_config.sh
-fi
+# Apply Themes
+antigen theme bureau
 
-alias zshconfig="code $CONFIG_DIR/.zshrc"
-alias envconfig="code $CONFIG_DIR/env.zsh"
-alias funcconfig="code $CONFIG_DIR/functions.zsh"
-alias pluginconfig="code $CONFIG_DIR/plugins.zsh"
+# Plugins
+antigen bundle aws
+antigen bundle autojump
+antigen bundle ansible
+antigen bundle brew
+antigen bundle common-aliases
+antigen bundle command-not-found
+antigen bundle compleat
+antigen bundle docker
+antigen bundle docker-compose
+antigen bundle encode64
+antigen bundle extract
+antigen bundle fzf
+antigen bundle git
+antigen bundle git-extras
+antigen bundle git-flow
+antigen bundle go
+antigen bundle jsontools
+antigen bundle kubectl
+antigen bundle osx
+antigen bundle python
+antigen bundle pip
+antigen bundle ruby
+antigen bundle vagrant
+antigen bundle vault
+antigen bundle rupa/z
+antigen bundle zsh-navigation-tools
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+[ -f $HOME/.dotfiles/env.zsh ] && source $HOME/.dotfiles/env.zsh
+
+antigen apply

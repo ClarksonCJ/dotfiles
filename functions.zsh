@@ -43,3 +43,7 @@ alias vi=nvim
 alias clear_aws='for i in $(env | grep AWS | grep -v AWS_HOME | cut -f 1 -d"="); do unset $i; done'
 alias pwgen="pwgen -y 15"
 alias s='ag --hidden --all-types --nogroup --ignore \".git\" -S "$@"'
+alias zshconfig="code $CONFIG_DIR/.zshrc"
+alias envconfig="code $CONFIG_DIR/env.zsh"
+alias funcconfig="code $CONFIG_DIR/functions.zsh"
+alias pluginconfig="code $CONFIG_DIR/plugins.zsh"
