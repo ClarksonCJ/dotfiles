@@ -27,7 +27,6 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export PIPENV_VENV_IN_PROJECT=1
 
-export JAVA_HOME="'/usr/libexec/java_home -v 1.8'"
 export GIT_MERGE_AUTOCOMMIT=no
 export TERM=xterm-256color
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34:su=0:sg=0:tw=0:ow=0:"
@@ -48,3 +47,5 @@ export LC_COLLATE=C
 export ANSIBLE_COW_SELECTION=random
 
 export THEME_NERD_FONTS="yes"
+
+export SDKMAN_DIR="/Users/chris/.sdkman"

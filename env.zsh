@@ -8,6 +8,7 @@ CONFIG_DIR=$HOME/.dotfiles
 [ -f $CONFIG_DIR/functions.zsh ] && source $CONFIG_DIR/functions.zsh
 [ -f $CONFIG_DIR/client_funcs.zsh ] && source $CONFIG_DIR/client_funcs.zsh
 [ -f $CONFIG_DIR/local_config.zsh ] && source $CONFIG_DIR/local_config.zsh
+[ -f $HOME/.sdkman/bin/sdkman-init.sh ] && source $HOME/.sdkman/bin/sdkman-init.sh
 
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
