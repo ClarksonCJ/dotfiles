@@ -5,7 +5,7 @@ function remove_untagged_containers() {
 }
 
 function file_permissions() {
-    stat -f "%A %a %N" "$@"
+    stat -c "%A %a %N" "$@"
 }
 
 function get_named_ip(){
@@ -14,6 +14,13 @@ function get_named_ip(){
 
 function get_instances(){
     aws ec2 describe-instances --filters 'Name=tag:Name,Values=*' --query 'Reservations[].Instances[].[Tags[?Key==`Name`] | [0].Value,InstanceId,InstanceType,PrivateIpAddress]' --output table
+}
+
+function clear_aws(){
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
+    unset AWS_DEFAULT_REGION
 }
 
 function setup_ansible_playbook() {
@@ -28,22 +35,30 @@ function setup_ansible_playbook() {
     vagrant init bento/centos-7.4
 }
 
+function setup_threat_model(){
+    mkdir -p threat-model
+    cp $HOME/Sandbox/templates/threat-model/* ./threat-model
+}
+
 # FileSearch
 function f() { find . -iname "*$1*" ${@:2} }
 function r() { grep "$1" ${@:2} -R . }
+function s() { ag --hidden --all-types --nogroup --ignore \".git\" -S "$@" }
 
 #mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
-# Aliases
-alias cppcompile='c++ -std=c++11 -stdlib=libc++'
+function threagile() {
+    docker run --rm -it -v "$(pwd)":/app/work threagile/threagile "$@"
+}
 
-alias vim=nvim
-alias vi=nvim
-alias clear_aws='for i in $(env | grep AWS | grep -v AWS_HOME | cut -f 1 -d"="); do unset $i; done'
-alias pwgen="pwgen -y 15"
-alias s='ag --hidden --all-types --nogroup --ignore \".git\" -S "$@"'
-alias zshconfig="code $CONFIG_DIR/.zshrc"
-alias envconfig="code $CONFIG_DIR/env.zsh"
-alias funcconfig="code $CONFIG_DIR/functions.zsh"
-alias pluginconfig="code $CONFIG_DIR/plugins.zsh"
+function mini-k() {
+    minikube kubectl -- "$@"
+}
+
+function prep-adr() {
+    npm install -g madr adr-log
+    mkdir -p docs/adr
+    cp $NODE_PATH/madr/template/* docs/adr
+}
+

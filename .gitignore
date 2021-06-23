@@ -1,5 +1,5 @@
 .DS_Store
 spf13-vim.sh
 client_funcs.zsh
-local_config.zsh
+local*.zsh
 github-vscode-ticket.txt

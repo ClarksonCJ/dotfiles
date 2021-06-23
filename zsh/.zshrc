@@ -2,6 +2,7 @@
 # Plugin Configuration
 source /usr/local/share/antigen/antigen.zsh
 
+CONFIG_DIR=$HOME/.dotfiles/zsh
 # Use Antigen for plugin management
 antigen use oh-my-zsh
 
@@ -24,10 +25,8 @@ antigen bundle fzf
 antigen bundle git
 antigen bundle git-extras
 antigen bundle git-flow
-antigen bundle go
+antigen bundle golang
 antigen bundle jsontools
-antigen bundle kubectl
-antigen bundle osx
 antigen bundle python
 antigen bundle pip
 antigen bundle ruby
@@ -37,7 +36,11 @@ antigen bundle rupa/z
 antigen bundle zsh-navigation-tools
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
-
-[ -f $HOME/.dotfiles/env.zsh ] && source $HOME/.dotfiles/env.zsh
+antigen bundle zsh-users/zsh-autosuggestions
 
 antigen apply
+
+[ -f $CONFIG_DIR/exports.zsh ] && source $CONFIG_DIR/exports.zsh
+[ -f $CONFIG_DIR/env.zsh ] && source $CONFIG_DIR/env.zsh
+# ---[ Extras ]-------------------------------------------------------
+source <(kubectl completion zsh)

@@ -1,15 +1,10 @@
 # Chris's Dotfiles
 
-Dotfiles I use on my Mac system and the installation process for Mac OSX.
+Dotfiles I use on my Linux system
 
-Installation Pre-Requisites (ensure these are present on your system before installation)
-- Brew
 
-Then execute from within the cloned folder
+Clone and execute from within the cloned folder
 
-```
+```shell
 ./install.sh
 ```
-
-It will: 
-- install all items in the **Brewfile**
