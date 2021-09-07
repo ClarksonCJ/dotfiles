@@ -10,10 +10,12 @@ fi
 # PATH
 export MANPATH=$MANPATH:/usr/local/man
 export MANPATH=$MANPATH:/usr/local/opt/coreutils/libexec/gnuman
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH=/snap/bin:$PATH
 export GOPATH=$HOME/Go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
@@ -23,7 +25,7 @@ export NVM_DIR="$HOME/.nvm"
 export GIT_MERGE_AUTOCOMMIT=no
 export TERM=xterm-256color
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34:su=0:sg=0:tw=0:ow=0:"
-
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # Python
 
 
@@ -35,8 +37,10 @@ export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_COLLATE=C
+export ZSH_TMUX_AUTOSTART=true
 
 # Random COWSAY in ansible
 export ANSIBLE_COW_SELECTION=random
 export THEME_NERD_FONTS="yes"
 export SDKMAN_DIR="$HOME/.sdkman"
+export DOCKERHOST=$(ifconfig | awk '/docker0/{getline; print}' | awk '{ print $2 }')
