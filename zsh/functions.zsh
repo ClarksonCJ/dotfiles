@@ -62,3 +62,6 @@ function prep-adr() {
     cp $NODE_PATH/madr/template/* docs/adr
 }
 
+function docker-sqlmap(){ 
+    docker run --rm --network=host -it -v /tmp/sqlmap:/root/.sqlmap/ paoloo/sqlmap "$@" 
+}
