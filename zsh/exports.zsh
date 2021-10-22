@@ -14,12 +14,13 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/snap/bin
 export PATH="$HOME/.pyenv/bin:$PATH"
-export PATH=/snap/bin:$PATH
 export GOPATH=$HOME/Go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH=$HOME/.r2env/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 export GIT_MERGE_AUTOCOMMIT=no

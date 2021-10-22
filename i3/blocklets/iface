@@ -53,14 +53,12 @@ IPADDR=$(ip addr show $IF | perl -n -e "/$AF ([^\/]+).* scope global/ && print \
 EXTIPADDR=$(curl ifconfig.me/ip)
 
 case $BLOCK_BUTTON in
-    1)
-        termite -e 'ping 8.8.8.8'         ;;
-
-    3) echo -n "$IPADDR" | xclip -q -se c
-        ;;
+    1) echo "IP: ${EXTIPADDR}"         ;;
+    3) echo "IP: Nice Try!"
 esac
-
+SHOWIP=$(cat ~/.showip) || 0
 #------------------------------------------------------------------------
 
-echo "${EXTIPADDR} (${IPADDR})" # full text
-echo "${EXTIPADDR} (${IPADDR})" # short text
+echo "IP: ${IPADDR}" # short text
+echo "IP: ${IPADDR}" # short text
+

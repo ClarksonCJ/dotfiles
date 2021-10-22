@@ -13,7 +13,7 @@ CONFIG_DIR=$HOME/.dotfiles/zsh
 # Execute Env Setup scripts
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 eval "$(rbenv init -)"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(direnv hook zsh)"
 source $HOME/.cargo/env
